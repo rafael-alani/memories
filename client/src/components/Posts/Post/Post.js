@@ -11,11 +11,14 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import moment from "moment";
 import React from "react";
+import { useDispatch } from "react-redux";
 
+import { deletePost } from "../../../actions/posts";
 import useStyles from "./styles";
 
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   return (
     <Card className={classes.card}>
@@ -37,9 +40,9 @@ const Post = ({ post }) => {
         <Button
           style={{ color: "white" }}
           size="small"
-          onClick={() => {}} //() => setCurrentId(post._id)
+          onClick={() => setCurrentId(post._id)} //() => setCurrentId(post._id)
         >
-          <MoreHorizIcon fontSize="default" />
+          <MoreHorizIcon fontSize="medium" />
         </Button>
       </div>
       <div className={classes.details}>
@@ -71,7 +74,7 @@ const Post = ({ post }) => {
         <Button
           size="small"
           color="primary"
-          onClick={() => {}} // () => dispatch(deletePost(post._id))
+          onClick={() => dispatch(deletePost(post._id))} //
         >
           <DeleteIcon fontSize="small" /> Delete
         </Button>
