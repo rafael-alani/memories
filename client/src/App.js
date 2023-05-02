@@ -25,7 +25,7 @@ const App = () => {
           <img
             className={classes.image}
             src={memories}
-            alt="memories"
+            alt="memories logo"
             height="60"
           />
         </Typography>
